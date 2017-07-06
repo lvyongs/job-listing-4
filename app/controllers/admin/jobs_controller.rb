@@ -2,7 +2,7 @@ class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :require_is_admin
 
-  
+
 
   def show
     @job = Job.find(params[:id])
@@ -13,11 +13,11 @@ class Admin::JobsController < ApplicationController
   end
 
   def new
-    @job = job.new
+    @job = Job.new
   end
 
   def create
-    @job =job.new(job_params)
+    @job = Job.new(job_params)
 
     if @job.save
       redirect_to admin_jobs_path
@@ -48,7 +48,7 @@ class Admin::JobsController < ApplicationController
 
   private
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email)
   end
 
 
