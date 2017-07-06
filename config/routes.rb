@@ -8,6 +8,7 @@ Rails.application.routes.draw do
          post :pulish
          post :hide
        end
+       resources :resumes
      end
    end
 
